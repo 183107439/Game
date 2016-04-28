@@ -31,7 +31,7 @@ public class Judger {
 	public void playGame(){
 		String key="y";
 		do{
-			++total;   //猜拳次数+1
+			++this.total;   //猜拳次数+1
 //			System.out.println(person.getPlayerName()+" VS "+computer.getPlayerName());
 //			System.out.println("\t  Game "+total);
 //			System.out.println("请你出拳：");
@@ -39,8 +39,8 @@ public class Judger {
 			//显示出拳信息
 			int personFist;
 			do{
-				System.out.println(person.getPlayerName()+" VS "+computer.getPlayerName());
-				System.out.println("\t  Game "+total);
+				System.out.println("\t"+person.getPlayerName()+" VS "+computer.getPlayerName());
+				System.out.println("\t  Game "+this.total);
 				System.out.println("请你出拳：");
 				
 				personFist=person.myFist();
@@ -103,7 +103,7 @@ public class Judger {
 	//输出最后结果
 	public void finalResult(){
 		System.out.println(">>游戏结果：");
-		System.out.println(person.getPlayerName()+" VS "+computer.getPlayerName());
+		System.out.println("\t"+person.getPlayerName()+" VS "+computer.getPlayerName());
 		System.out.println("对战次数：  "+this.total);
 		System.out.println("昵称\t\t得分");
 		System.out.println(person.getPlayerName()+"\t\t"+person.getWinningTimes());
