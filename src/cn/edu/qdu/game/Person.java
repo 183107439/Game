@@ -6,10 +6,9 @@ public class Person extends Player {
 	Scanner input=new Scanner(System.in);
 		
 	@Override
-	public String inputName() {
+	public void inputName() {
 		String playerName=input.next();
 		this.setPlayerName(playerName);
-		return playerName;
 	}
 
 	@Override
@@ -18,4 +17,8 @@ public class Person extends Player {
 		return myFist;
 	}
 	
+	public String isContinue(){
+		String key=input.next();
+		return key;
+	}
 }

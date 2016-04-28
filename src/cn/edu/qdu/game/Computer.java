@@ -5,15 +5,12 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Computer extends Player {
-	Scanner input=new Scanner(System.in);
 	
 	@Override
-	public String inputName() {
+	public void inputName() {
+		Scanner input=new Scanner(System.in);
 		int choose;
-		do{
-			System.out.println("请选择电脑的名字：");
-			System.out.println("1.秦始皇\t2.汉武帝\t3.皇太极");
-			
+		do{		
 			choose=input.nextInt();
 			switch (choose) {
 				case 1:
@@ -33,7 +30,6 @@ public class Computer extends Player {
 				break;
 			}
 		}while(choose <= 0 || choose > 3);
-		return this.getPlayerName();
 	}
 
 	@Override

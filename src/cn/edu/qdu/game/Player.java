@@ -6,7 +6,7 @@ public abstract class Player {
 	private int loseTimes;		//玩家负场数
 	private int dogfallTimes;	//玩家平局数
 	
-	public abstract String inputName();  //输入玩家名字
+	public abstract void inputName();  //输入玩家名字
 	public abstract int myFist();	//玩家出拳：1=石头  2=剪刀  3=布
 	
 	public String getPlayerName() {
