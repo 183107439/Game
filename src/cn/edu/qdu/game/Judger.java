@@ -35,6 +35,9 @@ public class Judger {
 		String personName=person.inputName();
 		String computerName=computer.inputName();
 		
+		//出拳
+		//玩家（你）出拳
+		int i=0;  //测试用
 		String key="y";
 		do{
 			++this.total;   //猜拳次数+1
@@ -66,6 +69,7 @@ public class Judger {
 				}
 			}while(personFist <= 0 || personFist > 3);
 			
+			//玩家（电脑）出拳
 			int computerFist=computer.myFist();
 			switch (computerFist) {
 			case 1:
@@ -85,21 +89,28 @@ public class Judger {
 			//单轮猜拳结果
 			System.out.println("本轮结果：");
 			if(personFist==1 && computerFist==2
-				|| personFist==2 && computerFist==3
-				|| personFist==3 && computerFist==1){
-				System.out.println("哼！本轮游戏你赢了！");
+				|| (personFist==2 && computerFist==3)
+				|| (personFist==3 && computerFist==1)){
 				person.setWinningTimes(person.getWinningTimes()+1);
+				computer.setLoseTimes(computer.getLoseTimes()+1);
+				System.out.println("哼！本轮游戏你赢了！");			
 			}else if(personFist==1 && computerFist==3
-					 || personFist==2 && computerFist==1
-					 || personFist==3 && computerFist==2){
+					 || (personFist==2 && computerFist==1)
+					 || (personFist==3 && computerFist==2)){
 				computer.setWinningTimes(computer.getWinningTimes()+1);
+				person.setLoseTimes(person.getLoseTimes()+1);
 				System.out.println("哈哈！本轮游戏你输了！");
 			}else{
+				computer.setDogfallTimes(computer.getDogfallTimes()+1);
+				person.setDogfallTimes(person.getDogfallTimes()+1);
 				System.out.println("本轮平局！");
 			}
 			System.out.println("");
 			System.out.println("是否开始下一轮（y/n）：");
-			key=input.next();			
+			//key=input.next();
+			i++;	//测试
+			if(i==5)	//
+				key="n";  //
 		}while(key.equalsIgnoreCase("y"));
 	}
 	
@@ -108,9 +119,16 @@ public class Judger {
 		System.out.println(">>游戏结果：");
 		System.out.println("\t"+person.getPlayerName()+" VS "+computer.getPlayerName());
 		System.out.println("对战次数：  "+this.total);
-		System.out.println("昵称\t\t得分");
-		System.out.println(person.getPlayerName()+"\t\t"+person.getWinningTimes());
-		System.out.println(computer.getPlayerName()+"\t\t"+computer.getWinningTimes());
+		System.out.println("昵称\t胜\t负\t平");
+		System.out.print(person.getPlayerName()+"\t");
+		System.out.print(person.getWinningTimes()+"\t");
+		System.out.print(person.getLoseTimes()+"\t");
+		System.out.println(person.getDogfallTimes()+"\t");
+		
+		System.out.print(computer.getPlayerName()+"\t");
+		System.out.print(computer.getWinningTimes()+"\t");
+		System.out.print(computer.getLoseTimes()+"\t");
+		System.out.println(computer.getDogfallTimes()+"\t");
 		if(person.getWinningTimes()>=computer.getWinningTimes()){
 			System.out.println("结果：哟！不错哟！");
 		}
