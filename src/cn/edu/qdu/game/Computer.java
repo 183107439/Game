@@ -9,20 +9,6 @@ public class Computer extends Player {
 	
 	@Override
 	public String inputName() {
-//		System.out.println("请选择电脑的名字：");
-//		System.out.println("1.秦始皇\t2.汉武帝\t3.皇太极");
-//		int choose=input.nextInt();
-//		if(choose==1){
-//			this.setPlayerName("秦始皇");
-//			return "秦始皇";
-//		}else if(choose==2){
-//			this.setPlayerName("汉武帝");
-//			return "汉武帝";
-//		}else{
-//			this.setPlayerName("皇太极");
-//			return "皇太极";
-//		}
-
 		int choose;
 		do{
 			System.out.println("请选择电脑的名字：");

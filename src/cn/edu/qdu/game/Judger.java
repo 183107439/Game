@@ -8,53 +8,56 @@ public class Judger {
 	private Computer computer=new Computer();
 	Scanner input=new Scanner(System.in);
 	
-	//游戏开始并说明规则
+	//说明规则
 	public void startGame(){
 		System.out.println("\t********************");
 		System.out.println("\t******猜拳游戏******");
 		System.out.println("\t********************");
-		System.out.println(">>游戏开始");
+//		System.out.println(">>游戏开始");
 		System.out.println("规则如下：");
 		System.out.println("1.石头\t2.剪刀\t3.布\t");
 	}
 	
 	//询问玩家昵称
-	public void askName(){
+//	public void askName(){
+//		System.out.println("请输入你的名字：");
+//		String personName=person.inputName();
+//		String computerName=computer.inputName();
+//		System.out.println("\t"+personName+" VS "+computerName);
+//		System.out.println("Game "+total);
+//	}
+	
+	//猜拳游戏过程
+	public void playGame(){
+		//询问玩家昵称
+		System.out.println(">>游戏开始");	//游戏开始
 		System.out.println("请输入你的名字：");
 		String personName=person.inputName();
 		String computerName=computer.inputName();
-//		System.out.println("\t"+personName+" VS "+computerName);
-//		System.out.println("Game "+total);
-	}
-	
-	//猜拳过程
-	public void playGame(){
+		
 		String key="y";
 		do{
 			++this.total;   //猜拳次数+1
-//			System.out.println(person.getPlayerName()+" VS "+computer.getPlayerName());
-//			System.out.println("\t  Game "+total);
-//			System.out.println("请你出拳：");
 			
 			//显示出拳信息
 			int personFist;
 			do{
-				System.out.println("\t"+person.getPlayerName()+" VS "+computer.getPlayerName());
+				System.out.println("\t"+personName+" VS "+computerName);
 				System.out.println("\t  Game "+this.total);
 				System.out.println("请你出拳：");
 				
 				personFist=person.myFist();
 				switch (personFist) {
 					case 1:
-						System.out.println("你出拳：石头");
+						System.out.println(personName+"(你)出拳：石头");
 					break;
 				
 					case 2:
-						System.out.println("你出拳：剪刀");
+						System.out.println(personName+"(你)出拳：剪刀");
 					break;
 				 
 					case 3:
-						System.out.println("你出拳：布");
+						System.out.println(personName+"(你)出拳：布");
 					break;
 				
 					default:
@@ -96,11 +99,11 @@ public class Judger {
 			}
 			System.out.println("");
 			System.out.println("是否开始下一轮（y/n）：");
-			key=input.next();
+			key=input.next();			
 		}while(key.equalsIgnoreCase("y"));
 	}
 	
-	//输出最后结果
+	//猜拳游戏结束输出最后结果
 	public void finalResult(){
 		System.out.println(">>游戏结果：");
 		System.out.println("\t"+person.getPlayerName()+" VS "+computer.getPlayerName());
